@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#1 sweets outsourced mfg company</title>
-    <meta name="description" content="PantG Sweets: The leading B2B sweet manufacturer and catering partner. Reducing operational costs for businesses in Nepal.">
+    <title>PantG Sweets | #1 Sweets Manufacturer in Nepal</title>
+    <meta name="description" content="PantG Sweets: The leading B2B sweet manufacturer and catering partner. Reducing operational costs for businesses since 2003.">
 
-    <!-- Fonts: 'Playfair Display' (Luxury Headlines) & 'Plus Jakarta Sans' (Clean Body) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,24 +19,20 @@
            1. ROOT VARIABLES
            ========================================= */
         :root {
-            /* Brand Palette */
-            --primary: #56059f;        /* Royal Violet */
+            --primary: #56059f;
             --primary-dark: #3a006e;
             --primary-light: #f4eaff;  
-            
-            --secondary: #fdcfb2;      /* Soft Peach */
+            --secondary: #fdcfb2;
             --secondary-dark: #eeb591;
             
-            /* Neutrals */
             --bg-white: #ffffff;
             --bg-offwhite: #f8fafc;    
             --text-main: #1e293b;      
             --text-muted: #64748b;     
             --border: #e2e8f0;
 
-            /* Layout */
             --container: 1200px;
-            --header-h: 80px;
+            --header-h: 70px; /* Reduced slightly for mobile feel */
             --radius: 8px;
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             --shadow-hover: 0 20px 25px -5px rgba(86, 5, 159, 0.1);
@@ -44,14 +40,15 @@
 
         /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-main);
             background-color: var(--bg-white);
             line-height: 1.6;
-            overflow-x: hidden;
+            width: 100%;
+            overflow-x: hidden; /* Prevent side scroll */
         }
 
         /* Typography */
@@ -62,29 +59,30 @@
             line-height: 1.2;
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 20px; }
-        h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 15px; }
-        h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 15px; }
+        h3 { font-size: 1.4rem; margin-bottom: 10px; }
         p { color: var(--text-muted); margin-bottom: 20px; font-size: 1rem; }
 
-        /* Helpers */
+        /* Utilities */
         .text-center { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
         .max-w-600 { max-width: 600px; }
 
         .container {
-            width: 90%;
+            width: 100%;
             max-width: var(--container);
             margin: 0 auto;
+            padding: 0 20px; /* Ensures text never touches screen edge on mobile */
         }
 
-        .section-pad { padding: 100px 0; }
+        .section-pad { padding: 80px 0; }
         .bg-light { background-color: var(--bg-offwhite); }
 
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 14px 32px;
+            padding: 12px 30px;
             font-weight: 600;
             font-size: 0.95rem;
             border-radius: 50px;
@@ -92,6 +90,7 @@
             transition: all 0.3s ease;
             text-align: center;
             border: 2px solid transparent;
+            white-space: nowrap;
         }
         .btn-primary {
             background-color: var(--primary);
@@ -109,22 +108,13 @@
         .btn-secondary:hover {
             background-color: var(--secondary-dark);
         }
-        .btn-outline {
-            background: transparent;
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
 
         /* Badge */
         .hero-badge {
             display: inline-block;
             background: var(--primary-light);
             color: var(--primary);
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 700;
@@ -133,7 +123,7 @@
         }
 
         /* =========================================
-           2. HEADER (Fixed & Mobile Ready)
+           2. HEADER (Fixed)
            ========================================= */
         header {
             position: fixed; top: 0; left: 0; width: 100%; height: var(--header-h);
@@ -149,23 +139,28 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
             display: flex; align-items: center; gap: 8px;
+            white-space: nowrap; /* Prevents logo breaking */
         }
 
-        /* Desktop Nav */
-        .nav-links { display: flex; gap: 40px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a {
             color: var(--text-main); font-weight: 500; font-size: 0.95rem; text-decoration: none;
         }
         .nav-links a:hover { color: var(--primary); }
 
+        /* The Button inside Nav (Hidden on Desktop, Visible on Mobile) */
+        .mobile-only-btn { display: none; margin-top: 15px; }
+
         .cta-group { display: flex; align-items: center; gap: 15px; }
         
-        /* Hamburger Menu Icon */
+        /* Desktop Header Button */
+        .header-btn { display: inline-block; }
+
         .mobile-toggle { 
             display: none; 
             font-size: 1.5rem; 
@@ -173,13 +168,14 @@
             cursor: pointer; 
             background: none;
             border: none;
+            padding: 5px;
         }
 
         /* =========================================
            3. HERO SECTION
            ========================================= */
         .hero {
-            padding-top: calc(var(--header-h) + 60px);
+            padding-top: calc(var(--header-h) + 50px);
             padding-bottom: 80px;
             background: linear-gradient(105deg, var(--bg-offwhite) 60%, white 60%);
         }
@@ -187,39 +183,40 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
-
-        .hero-stats {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
-            display: flex; gap: 50px;
-        }
-        .stat-item strong { display: block; font-size: 1.8rem; color: var(--primary); line-height: 1; }
-        .stat-item span { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
 
         .hero-img img { 
             display: block; width: 100%; border-radius: var(--radius);
             box-shadow: var(--shadow-hover);
         }
 
+        .hero-stats {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex; gap: 40px;
+            flex-wrap: wrap; 
+        }
+        .stat-item strong { display: block; font-size: 1.8rem; color: var(--primary); line-height: 1; }
+        .stat-item span { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+
         /* =========================================
            4. TRUST STRIP
            ========================================= */
         .trust-strip {
-            padding: 40px 0; border-bottom: 1px solid var(--border); background: white;
+            padding: 30px 0; border-bottom: 1px solid var(--border); background: white;
         }
         .logo-grid {
-            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; opacity: 0.6;
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; opacity: 0.8;
         }
         .client-logo {
-            font-size: 1.2rem; font-weight: 700; color: var(--text-muted); display: flex; align-items: center; gap: 10px;
+            font-size: 0.95rem; font-weight: 700; color: var(--text-muted); display: flex; align-items: center; gap: 8px;
         }
 
         /* =========================================
-           5. ABOUT SECTION
+           5. ABOUT & GENERAL GRIDS
            ========================================= */
         .about-grid {
             display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: center;
@@ -233,15 +230,17 @@
         }
 
         /* =========================================
-           6. B2B SOLUTIONS (Table)
+           6. TABLES & CARDS
            ========================================= */
         .table-wrapper {
-            width: 100%; overflow-x: auto; margin-bottom: 60px;
+            width: 100%; overflow-x: auto; margin-bottom: 50px;
             border-radius: var(--radius); box-shadow: var(--shadow-card);
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--border);
         }
         table { width: 100%; border-collapse: collapse; min-width: 600px; background: white; }
-        th { background: var(--primary); color: white; padding: 15px 25px; text-align: left; }
-        td { padding: 15px 25px; border-bottom: 1px solid var(--border); color: var(--text-muted); text-align: left;}
+        th { background: var(--primary); color: white; padding: 15px; text-align: left; font-size: 0.9rem; }
+        td { padding: 15px; border-bottom: 1px solid var(--border); color: var(--text-muted); text-align: left; font-size: 0.95rem; }
         tr:nth-child(even) { background-color: var(--bg-offwhite); }
         .check { color: #10b981; font-weight: bold; } 
         .cross { color: #ef4444; }
@@ -250,34 +249,28 @@
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
         }
         .card {
-            background: white; padding: 40px 30px;
+            background: white; padding: 30px;
             border: 1px solid var(--border); border-radius: var(--radius);
             transition: 0.3s; display: flex; flex-direction: column; text-align: left;
         }
-        .card:hover {
-            border-color: var(--secondary); transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
+        .card:hover { border-color: var(--secondary); transform: translateY(-5px); box-shadow: var(--shadow-hover); }
         .card-icon {
             width: 50px; height: 50px; background: var(--secondary); color: var(--primary);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; margin-bottom: 25px;
+            font-size: 1.2rem; margin-bottom: 20px;
         }
 
         /* =========================================
-           7. EVENTS (Filtered)
+           7. EVENTS (Responsive Grid)
            ========================================= */
         .event-tabs {
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            margin-bottom: 40px;
-            flex-wrap: wrap; /* Fix: Buttons wrap on mobile */
+            display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;
         }
         .tab-btn {
-            padding: 10px 30px; border-radius: 50px; border: 1px solid var(--border);
+            padding: 10px 20px; border-radius: 50px; border: 1px solid var(--border);
             background: white; color: var(--text-muted); cursor: pointer; transition: 0.3s;
             font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
         }
         .tab-btn.active, .tab-btn:hover {
             background: var(--primary); color: white; border-color: var(--primary);
@@ -287,119 +280,49 @@
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
         }
         .event-item {
-            position: relative; height: 350px; border-radius: var(--radius); overflow: hidden;
-            display: none; animation: fadeIn 0.5s ease;
+            position: relative; height: 300px; border-radius: var(--radius); overflow: hidden;
+            display: none; animation: fadeIn 0.5s ease; width: 100%;
         }
         .event-item.show { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .event-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .event-item:hover img { transform: scale(1.1); }
         .event-overlay {
             position: absolute; bottom: 0; left: 0; width: 100%;
             background: linear-gradient(to top, rgba(86, 5, 159, 0.9), transparent);
-            padding: 25px; color: white; text-align: left;
+            padding: 20px; color: white; text-align: left;
         }
-        .event-overlay h3 { color: var(--secondary); margin-bottom: 5px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* =========================================
-           8. TESTIMONIALS & CTA
+           8. TEAM & TESTIMONIALS
            ========================================= */
-        .testi-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
+        .team-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 50px;
         }
+        .team-card {
+            background: white; border: 1px solid var(--border); border-radius: var(--radius);
+            overflow: hidden; text-align: left;
+        }
+        .team-img-box { height: 280px; width: 100%; overflow: hidden; position: relative; background-color: var(--bg-offwhite); }
+        .team-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .team-info { padding: 20px; }
+        .team-role {
+            display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--primary);
+            background: var(--primary-light); padding: 4px 10px; border-radius: 4px; margin-bottom: 8px; text-transform: uppercase;
+        }
+        .team-name {
+            font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 5px;
+        }
+
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .testi-card {
-            background: var(--bg-offwhite); padding: 40px; border-radius: var(--radius);
+            background: var(--bg-offwhite); padding: 30px; border-radius: var(--radius);
             border-left: 5px solid var(--secondary); text-align: left;
         }
-        .stars { color: #f59e0b; margin-bottom: 15px; }
-
+        .stars { color: #f59e0b; margin-bottom: 10px; }
         .cta-box {
             background: var(--primary); color: white; text-align: center;
-            padding: 80px 20px; border-radius: var(--radius); margin-top: 80px;
+            padding: 60px 20px; border-radius: var(--radius); margin-top: 60px;
         }
-        .cta-box h2 { color: var(--secondary); margin-bottom: 20px; }
-        .cta-box p { color: white; opacity: 0.9; margin-bottom: 30px; }
-
-        /* =========================================
-   TEAM SECTION
-   ========================================= */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.team-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: 0.3s ease;
-    text-align: left;
-}
-
-.team-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--secondary);
-    box-shadow: var(--shadow-hover);
-}
-
-.team-img-box {
-    height: 320px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    background-color: var(--bg-offwhite);
-}
-
-.team-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s ease;
-    border-radius: 0; /* Override global radius for full width */
-}
-
-.team-card:hover .team-img-box img {
-    transform: scale(1.05);
-}
-
-.team-info {
-    padding: 25px;
-}
-
-.team-role {
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--primary);
-    background: var(--primary-light);
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.team-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-main);
-    margin-bottom: 8px;
-}
-
-.team-bio {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 0;
-    line-height: 1.5;
-}
 
         /* =========================================
            9. CONTACT & FOOTER
@@ -410,45 +333,44 @@
         }
         .contact-info { background: var(--bg-offwhite); padding: 50px; text-align: left; }
         .contact-form { background: white; padding: 50px; text-align: left; }
-        
         .form-input {
             width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 4px;
             font-family: inherit; font-size: 1rem; margin-bottom: 20px;
         }
 
-        /* Social Icons */
-        .social-icons { display: flex; gap: 15px; margin-top: 30px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 25px; }
         .social-icon {
             width: 40px; height: 40px; border-radius: 50%; 
             background: var(--primary); color: white; 
             display: flex; align-items: center; justify-content: center;
             font-size: 1.2rem; transition: 0.3s;
         }
-        .social-icon:hover { background: var(--secondary); color: var(--primary); transform: translateY(-3px); }
 
         footer {
-            background: #0f172a; color: #cbd5e1; padding: 80px 0 30px; font-size: 0.9rem; text-align: left;
+            background: #0f172a; color: #cbd5e1; padding: 60px 0 30px; font-size: 0.9rem; text-align: left;
         }
         .footer-grid {
             display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
         }
         .footer-links a { color: #cbd5e1; text-decoration: none; display: block; margin-bottom: 10px; }
-        .footer-links a:hover { color: var(--secondary); }
 
         /* =========================================
-           10. RESPONSIVE MEDIA QUERIES
+           10. MOBILE OPTIMIZATION (CRITICAL FIXES)
            ========================================= */
+        
+        /* Tablets & Mobile (< 992px) */
         @media (max-width: 992px) {
+            /* General Grid Reset: Stack everything */
             .hero-grid, .about-grid, .cards-grid, .testi-grid, .contact-container, .footer-grid, .event-gallery {
-                grid-template-columns: 1fr; gap: 40px;
+                grid-template-columns: 1fr; 
+                gap: 40px;
             }
-            .hero { padding-top: 100px; text-align: center; background: white; }
-            .hero-content { align-items: center; }
-            .hero-stats { justify-content: center; }
-            .hero-img { order: -1; margin-bottom: 30px; }
+
+            /* Header Adjustments */
+            .header-btn { display: none; } /* Hide desktop button */
+            .mobile-toggle { display: block; } /* Show hamburger */
             
-            /* Mobile Navigation */
-            .mobile-toggle { display: block; }
+            /* Mobile Menu Styling */
             .nav-links {
                 position: absolute;
                 top: var(--header-h);
@@ -456,22 +378,46 @@
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 40px;
+                padding: 40px 20px;
                 box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-                transform: translateY(-150%); /* Hidden by default */
+                transform: translateY(-150%);
                 transition: transform 0.4s ease;
                 align-items: center;
-                gap: 25px;
+                gap: 20px;
+                text-align: center;
+                z-index: 990;
             }
-            .nav-links.active { transform: translateY(0); } /* Show menu */
+            .nav-links.active { transform: translateY(0); }
+            
+            /* Show button inside mobile menu */
+            .mobile-only-btn { display: inline-block; }
+
+            /* Hero Center Alignment */
+            .hero { padding-top: 100px; text-align: center; background: white; }
+            .hero-content p { text-align: center; margin: 0 auto 30px; }
+            .hero-content div[style*="flex"] { justify-content: center; }
+            .hero-stats { justify-content: center; gap: 30px; }
+            .hero-img { order: -1; margin-bottom: 20px; } /* Image on top */
+
+            /* Section Alignment */
+            .text-center-mobile { text-align: center; }
+            .signature { margin: 20px auto 0; width: fit-content; }
         }
 
-        /* Small Mobile Adjustments */
+        /* Small Phones (< 600px) */
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
+            h1 { font-size: 2rem; }
             .hero-stats { flex-direction: column; gap: 20px; }
-            .tab-btn { width: 45%; padding: 10px; font-size: 0.9rem; } /* Buttons fit 2 per row */
-            .logo-grid { justify-content: center; }
+            
+            /* Padding Adjustments */
+            .section-pad { padding: 60px 0; }
+            .contact-info, .contact-form { padding: 30px 20px; }
+            
+            /* Footer */
+            footer { padding: 50px 0 20px; }
+            
+            /* Event Tabs - Wrap nicely */
+            .tab-btn { width: 45%; padding: 8px 0; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -481,17 +427,23 @@
     <header>
         <div class="container nav-wrapper">
             <a href="#" class="logo">
-                <!--<i class="fas fa-crown"></i>--> PANTG SWEETS
+                PANTG SWEETS
             </a>
-            <!-- Mobile Menu -->
+            
+            <!-- Links (Desktop & Mobile Menu) -->
             <nav class="nav-links" id="nav-menu">
                 <a href="#about">About</a>
                 <a href="#b2b">Business Solutions</a>
                 <a href="#events">Catering Events</a>
                 <a href="#contact">Contact</a>
+                <!-- Mobile Button (Inside Menu) -->
+                <a href="#contact" class="btn btn-primary mobile-only-btn">Get Quote</a>
             </nav>
+
             <div class="cta-group">
-                <a href="#contact" class="btn btn-primary">Get Quote</a>
+                <!-- Desktop Button (Outside Menu) -->
+                <a href="#contact" class="btn btn-primary header-btn">Get Quote</a>
+                <!-- Hamburger -->
                 <button class="mobile-toggle" id="mobile-btn"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -502,10 +454,10 @@
         <div class="container hero-grid">
             <div class="hero-content">
                 <div class="hero-badge">20+ years of experience</div>
-                <h1>#1 sweets outsourced <br>manufactring company in Nepal</h1>
-                <p class="text-left" style="text-align: inherit;">We reduce operational costs for sweet shops and other businesses through outsourced manufacturing, also provideng live event catering services.</p>
+                <h1>#1 Sweets Outsourced <br>Mfg Company in Nepal</h1>
+                <p>We reduce operational costs for sweet shops and other businesses through outsourced manufacturing, also providing live event catering services.</p>
                 
-                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                     <a href="#b2b" class="btn btn-primary">Business Solutions</a>
                     <a href="#events" class="btn btn-secondary">Event Catering</a>
                 </div>
@@ -523,10 +475,6 @@
                         <strong>100%</strong>
                         <span>Hygiene</span>
                     </div>
-                    <div class="stat-item">
-                        <strong>100%</strong>
-                        <span>Quality</span>
-                    </div>
                 </div>
             </div>
             
@@ -542,7 +490,6 @@
             <div class="client-logo"><i class="fas fa-hotel"></i> Rubus Hotel</div>
             <div class="client-logo"><i class="fas fa-hotel"></i> Siddhartha Hotel</div>
             <div class="client-logo"><i class="fas fa-store"></i> Asta Binayak Sweets</div>
-            
         </div>
     </div>
 
@@ -552,14 +499,12 @@
             <div class="about-img">
                 <img src="pantgimage.png" alt="PantG Founder">
             </div>
-            <div class="about-text">
+            <div class="about-text text-center-mobile">
                 <div class="hero-badge">The Founder</div>
                 <h2>PantG: A Legacy Built on Trust</h2>
-                <p>Hello, I am Ramesh Datta Pant. We know how hard it is to run a sweet shop or a restaurant. You worry about rising ingredient costs, managing labor, and maintaining the same taste every single day. That is where we come in.
-Think of us as your silent partner. We work behind the scenes, combining traditional recipes with modern, hygienic manufacturing to deliver perfection in every batch. We take on the burden of production so you can focus on what matters most: your customers.
-Whether we are supplying your shop or catering your daughter’s wedding, our philosophy remains the same: Authentic taste, zero compromise."</p>
+                <p>Hello, I am Ramesh Datta Pant. We know how hard it is to run a sweet shop or a restaurant. You worry about rising ingredient costs, managing labor, and maintaining the same taste every single day. That is where we come in.</p>
+                <p>Think of us as your silent partner. We work behind the scenes, combining traditional recipes with modern, hygienic manufacturing to deliver perfection in every batch.</p>
                 <div class="signature">PantG.</div>
-
             </div>
         </div>
     </section>
@@ -570,7 +515,7 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
             <div class="text-center mx-auto max-w-600" style="margin-bottom: 60px;">
                 <div class="hero-badge">Business Logic</div>
                 <h2>Why Outsource to PantG?</h2>
-                <p class="text-center">See the numbers yourself. Compare In-House production vs. Outsourcing to us.</p>
+                <p>See the numbers yourself. Compare In-House production vs. Outsourcing to us.</p>
             </div>
 
             <!-- Comparison Table -->
@@ -581,7 +526,6 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                             <th>Operational Aspect</th>
                             <th>In-House Production</th>
                             <th>Outsourced to PantG</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -600,15 +544,15 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                             <td><i class="fas fa-exclamation-circle" style="color:orange"></i> Varies Daily</td>
                             <td><i class="fas fa-check check"></i> <strong>100% Consistent</strong></td>
                         </tr>
-                        <tr>
-                            <td>Staffs Salary</td>
-                            <td><i class="fas fa-times cross"></i> High Fixed Cost</td>
+                         <tr>
+                            <td>Staff Salary</td>
+                            <td><i class="fas fa-times cross"></i> High Expense</td>
                             <td><i class="fas fa-check check"></i> <strong>Zero Cost</strong></td>
                         </tr>
                         <tr>
-                            <td>Raw Material Cost</td>
-                            <td><i class="fas fa-times cross"></i> High Turnover</td>
-                            <td><i class="fas fa-check check"></i> <strong>Managed by Us</strong></td>
+                            <td>Raw Material</td>
+                            <td><i class="fas fa-times cross"></i> Volatile Prices</td>
+                            <td><i class="fas fa-check check"></i> <strong>Stable Prices</strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -619,24 +563,23 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-store"></i></div>
                     <h3>B2B Sweet Supply</h3>
-                    <p style="margin-top: 15px;">Stop worrying about kitchen staff and raw materials. We supply bulk sweets to hotels, restaurants, and retail shops at manufacturing cost rates.
-                    </p>
+                    <p style="margin-top: 15px;">Stop worrying about kitchen staff and raw materials. We supply bulk sweets to hotels, restaurants, and retail shops at manufacturing cost rates.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-gift"></i></div>
                     <h3>Corporate Gifting</h3>
-                    <p style="margin-top: 15px;"> Customized sweet boxes for Diwali, festivals, or corporate gifting. Premium packaging with the authentic taste of PantG.</p>
+                    <p style="margin-top: 15px;">Customized sweet boxes for Diwali, festivals, or corporate gifting. Premium packaging with the authentic taste of PantG.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-fire"></i></div>
                     <h3>Live Catering Counters</h3>
-                    <p style="margin-top: 15px;"> Hire us for weddings and parties. We set up hygienic live counters for Pani Puri, Chat, Jalebi, Gulab Jamun and fresh Gajar Ko Haluwa that will delight your guests (all sweet items). </p>
+                    <p style="margin-top: 15px;">Hire us for weddings and parties. We set up hygienic live counters for Pani Puri, Chat, Jalebi, and fresh Haluwa.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EVENTS SECTION (JS Enabled) -->
+    <!-- EVENTS SECTION -->
     <section id="events" class="section-pad bg-light">
         <div class="container">
             <div class="text-center mx-auto max-w-600" style="margin-bottom: 50px;">
@@ -654,7 +597,6 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
 
             <!-- Gallery -->
             <div class="event-gallery">
-                <!-- Wedding Cards -->
                 <div class="event-item show" data-category="wedding">
                     <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding">
                     <div class="event-overlay">
@@ -662,15 +604,6 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                         <p>Dessert buffets & return gifts.</p>
                     </div>
                 </div>
-                <div class="event-item show" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sweets">
-                    <div class="event-overlay">
-                        <h3>Premium Sweets</h3>
-                        <p>Exquisite traditional mithai.</p>
-                    </div>
-                </div>
-
-                <!-- Party Cards -->
                 <div class="event-item show" data-category="party">
                     <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Panipuri">
                     <div class="event-overlay">
@@ -678,15 +611,6 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                         <p>Hygienic & Tangy Counters.</p>
                     </div>
                 </div>
-                <div class="event-item show" data-category="party">
-                    <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Snacks">
-                    <div class="event-overlay">
-                        <h3>Snack Counters</h3>
-                        <p>Live Chaat & Haluwa.</p>
-                    </div>
-                </div>
-
-                <!-- Corporate Cards -->
                 <div class="event-item show" data-category="corporate">
                     <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
                     <div class="event-overlay">
@@ -694,99 +618,46 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                         <p>Professional catering services.</p>
                     </div>
                 </div>
-                <div class="event-item show" data-category="corporate">
-                    <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boxes">
-                    <div class="event-overlay">
-                        <h3>Gift Boxes</h3>
-                        <p>Branded Dry Fruit boxes.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS & CTA -->
-    <section id="testimonials" class="section-pad">
-        <div class="container">
-            <div class="text-center mx-auto max-w-600" style="margin-bottom: 50px;">
-                <h2>Trusted Partners</h2>
-            </div>
-            <div class="testi-grid">
-                <div class="testi-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"PantG handles our entire morning supply. I save 50k a month on labor and the quality is better than what my chefs made."</p>
-                    <strong>- Rohan, Sweet Shop Owner</strong>
-                </div>
-                <div class="testi-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"We hired PantG for our daughter's wedding. The Live Haluwa counter was the highlight. Clean, tasty, and on time."</p>
-                    <strong>- Mrs. Kapoor, Client</strong>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="cta-box">
-                <h2>Confused about Pricing?</h2>
-                <p>Book a free 15-minute consultation call with PANTG.</p>
-                <a href="#contact" class="btn btn-secondary">Book Free Consultation</a>
             </div>
         </div>
     </section>
 
     <!-- TEAM SECTION -->
-<section id="team" class="section-pad">
-    <div class="container">
-        <!-- Section Header -->
-        <div class="text-center mx-auto max-w-600">
-            <div class="hero-badge">Our Experts</div>
-            <h2>The Minds Behind the Brand</h2>
-            <p>Meet our team.</p>
+    <section id="team" class="section-pad">
+        <div class="container">
+            <div class="text-center mx-auto max-w-600">
+                <div class="hero-badge">Our Experts</div>
+                <h2>The Minds Behind the Brand</h2>
+                <p>Meet our team.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img-box"><img src="pantgimage.png" alt="PantG"></div>
+                    <div class="team-info">
+                        <span class="team-role">Founder</span>
+                        <h3 class="team-name">PantG</h3>
+                        <p class="team-bio">20+ years of recipe standardization.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-box"><img src="pawankumarpant.png" alt="Operations Manager"></div>
+                    <div class="team-info">
+                        <span class="team-role">Operations</span>
+                        <h3 class="team-name">Pawan Kumar Pant</h3>
+                        <p class="team-bio">Ensures smooth B2B supply chain.</p>
+                    </div>
+                </div>
+                 <div class="team-card">
+                    <div class="team-img-box"><img src="khemrajpant.png" alt="Tech"></div>
+                    <div class="team-info">
+                        <span class="team-role">Marketing & Tech</span>
+                        <h3 class="team-name">Khemraj Pant</h3>
+                        <p class="team-bio">Brand visibility and tech.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Team Grid -->
-        <div class="team-grid">
-            
-            <!-- Member 1: Founder -->
-            <div class="team-card">
-                <div class="team-img-box">
-                    <img src="pantgimage.png" alt="PantG">
-                </div>
-                <div class="team-info">
-                    <span class="team-role">Founder & Master Chef</span>
-                    <h3 class="team-name">PantG</h3>
-                    <p class="team-bio">With 20+ years of experience, he oversees recipe standardization and quality control personally.</p>
-                </div>
-            </div>
-
-            <!-- Member 2: Operations -->
-            <div class="team-card">
-                <div class="team-img-box">
-                    <img src="pawankumarpant.png" alt="Operations Manager">
-                </div>
-                <div class="team-info">
-                    <span class="team-role">Head of Operations</span>
-                    <h3 class="team-name">Pawan Kumar Pant</h3>
-                    <p class="team-bio">Ensures your B2B supply chain runs smoothly, managing timely deliveries and logistics.</p>
-                </div>
-            </div>
-
-            <!-- Member 3: Catering -->
-            <div class="team-card">
-                <div class="team-img-box">
-                    <img src="khemrajpant.png" alt="Marketing & Tech">
-                </div>
-                <div class="team-info">
-                    <span class="team-role">Marketing & Tech</span>
-                    <h3 class="team-name">Khemraj Pant</h3>
-                    <p class="team-bio">The creative mind behind our brand visibility and awerness, also has big role to handel all the tech part.</p>
-                </div>
-            </div>
-
-            
-
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- CONTACT FORM -->
     <section id="contact" class="section-pad bg-light">
@@ -808,37 +679,22 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                         <div style="font-size: 1.1rem; color: var(--text-main);">Dhangadhi Airport Chowk, Dhangadhi, Kailali</div>
                     </div>
                     
-                    <!-- Social Icons Added -->
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <div class="contact-form">
                     <form>
-                        <div class="form-group">
+                        <div class="form-input">
                             <label class="form-label">Full Name</label>
                             <input type="text" class="form-input" placeholder="John Doe">
                         </div>
-                        <div class="form-group">
+                        <div class="form-input">
                             <label class="form-label">Phone Number</label>
-                            <input type="tel" class="form-input" placeholder="+91...">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Interested In</label>
-                            <select class="form-input">
-                                <option>B2B Manufacturing (Bulk)</option>
-                                <option>Event Catering</option>
-                                <option>Corporate Gifting</option>
-                                <option>Free Consultation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-input" rows="4" placeholder="How can we help you?"></textarea>
+                            <input type="tel" class="form-input" placeholder="+977...">
                         </div>
                         <button class="btn btn-primary" style="width: 100%;">Send Request</button>
                     </form>
@@ -854,27 +710,19 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
                 <div>
                     <a href="#" class="footer-logo">PantG Sweets</a>
                     <p style="margin-top: 15px; color:#cbd5e1;">Let's work together, giving value to the customers, and grow together</p>
-                    <!-- Footer Social Icons -->
-                    <div class="social-icons" style="margin-top: 20px;">
-                        <a href="#" class="social-icon" style="background:rgba(255,255,255,0.1);"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon" style="background:rgba(255,255,255,0.1);"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" style="background:rgba(255,255,255,0.1);"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
                 <div>
                     <h4 style="color:white; font-size: 1rem; margin-bottom: 20px;">Company</h4>
                     <ul class="footer-links">
                         <li><a href="#about">About Founder</a></li>
                         <li><a href="#b2b">Team</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 style="color:white; font-size: 1rem; margin-bottom: 20px;">Services</h4>
                     <ul class="footer-links">
                         <li><a href="#">B2B Sweet Supply</a></li>
-                        <li><a href="#">Corporate & Festival Orders</a></li>
-                        <li><a href="#">Live Catering Counters</a></li>
+                        <li><a href="#">Live Catering</a></li>
                     </ul>
                 </div>
             </div>
@@ -884,7 +732,7 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
         </div>
     </footer>
 
-    <!-- JAVASCRIPT: Event Filters & Mobile Menu -->
+    <!-- JAVASCRIPT -->
     <script>
         // 1. Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-btn');
@@ -893,7 +741,6 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
         mobileBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             
-            // Toggle Icon Class
             const icon = mobileBtn.querySelector('i');
             if(navMenu.classList.contains('active')){
                 icon.classList.remove('fa-bars');
@@ -904,7 +751,7 @@ Whether we are supplying your shop or catering your daughter’s wedding, our ph
             }
         });
 
-        // Close menu when link is clicked
+        // Close menu when a link is clicked
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
